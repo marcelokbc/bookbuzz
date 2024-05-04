@@ -1,0 +1,35 @@
+<!-- component -->
+<div class="min-h-screen flex flex-row bg-gray-100">
+  <div class="flex flex-col w-56 bg-gray-100 pt-4 border-r border-gray-200">
+    <ul class="flex flex-col py-4">
+      <li>
+      <%= link_to admin_books_path, class:"flex flex-row items-center p-0 h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800" do %>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-home"></i></span>
+          <span class="text-sm font-medium">Livros</span>
+      <% end %>
+      </li>
+      <li>
+      <%= link_to admin_comments_path, class:"flex flex-row items-center p-0 h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800" do %>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-briefcase"></i></span>
+          <span class="text-sm font-medium">Comentários</span>
+      <% end %>
+      </li>
+      <li>
+      <%= link_to admin_users_path, class:"flex flex-row items-center p-0 h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800" do %>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-user"></i></span>
+          <span class="text-sm font-medium">Usuários</span>
+      <% end %>
+      </li>
+      <li>
+      <%= button_to destroy_user_session_path, method: :delete, class:"flex flex-row items-center p-0 h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800" do %>
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
+          <span class="text-sm font-medium">Logout</span>
+      <% end %>
+        <%# <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+          <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
+          <span class="text-sm font-medium">Logout</span>
+        </a> %>
+      </li>
+    </ul>
+  </div>
+</div>

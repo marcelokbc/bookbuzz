@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookbuzz</title>
+    <title>Jobsforvets</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -12,15 +13,16 @@
   </head>
 
   <body>
-    <div id="flash">
-      <%= render 'shared/flashes' %>
+    <%= render 'menus/admin_navbar' %>
+    <%#= render 'shared/flashes' %>
+
+    <div class="flex">
+      <%= render 'menus/admin_sidebar' %>
+        <div class="w-full">
+            <%= yield %>
+        </div>
     </div>
-    <div>
-      <%= render 'shared/navbar' %>
-    </div>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
-      <%= render 'layouts/footer' %>
+     
+     <%= render 'layouts/footer' %>
   </body>
 </html>
