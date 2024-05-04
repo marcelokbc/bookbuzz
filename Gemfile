@@ -13,7 +13,7 @@ gem "stimulus-rails"
 gem "tailwindcss-rails"
 gem "jbuilder"
 gem "redis", ">= 4.0.1"
-gem 'pagy'
+gem "pagy", "~> 5.10"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
