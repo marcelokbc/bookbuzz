@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      book: Livro
+    attributes:
+      book: 
+        title: Título
+        author: Autor
+        description: Descrição
+        price: Preço
+        rating: Avaliação
+        image: Foto do livro
