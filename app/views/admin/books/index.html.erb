@@ -11,6 +11,20 @@
           <%= link_to "Cadastrar", new_admin_book_path, class: "middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" %>
         </div>
       </div>
+      <div class="flex items-center justify-end mt-5 pr-7">
+          <form>
+            <%= search_form_for @q, url: :admin_books do |f| %>
+              <div class="relative text-gray-600 focus-within:text-gray-400 w-80">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <%= f.submit "", class: "p-1 focus:outline-none focus:shadow-outline" %>
+                </span>
+                <!--!> pesquisar por titulo e autor -->
+                <%= f.search_field :title_or_author_cont, class: "py-2 text-sm text-dark rounded-md pl-10 focus:outline-none focus:bg-white focus:text-dark-blue", placeholder:"Pesquisar por título ou autor", autocomplete: "off" %> 
+              </div>
+            <% end %>
+          </form>
+      </div>
       <div class="overflow-x-auto my-10">
         <div class="inline-block min-w-full overflow-hidden ">
           <table class="table table-zebra w-full my-4">
