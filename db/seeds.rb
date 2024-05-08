@@ -3,7 +3,8 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # add user
-User.create!(name: 'Marcelo', email: 'marcelo@gmail.com', password: '123456', access_level: 1)
+User.create!(name: 'Marcelo', email: 'marcelo@gmail.com', password: '123456', access_level: 0)
+User.create!(name: 'Admin', email: 'admin@gmail.com', password: '123456', access_level: 1)
 
 puts 'Usuário criado com sucesso!'
 
