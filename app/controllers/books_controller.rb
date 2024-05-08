@@ -5,7 +5,9 @@ class BooksController < ApplicationController
     @books = Book.all.order('created_at DESC')
   end
 
-  def show;end
+  def show
+    @comment = Comment.new 
+  end
 
   private
 

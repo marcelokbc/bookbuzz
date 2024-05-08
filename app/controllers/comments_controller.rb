@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   before_action :set_book
-  before_action :set_comment, only: %i[show edit update destroy]
+  before_action :set_comment, only: [:edit, :update, :destroy]
 
   def create
-    @comment = @book.comments.create(comment_params)
+    @comment = @book.comments.build(comment_params)
     @comment.user_id = current_user.id
 
     if @comment.save
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    render :form
+    render :edit
   end
 
   def update
@@ -35,24 +35,38 @@ class CommentsController < ApplicationController
       redirect_to @book
     else
       flash[:error] = 'Comentário não pode ser deletado'
-      render :form, status: :unprocessable_entity
+      redirect_to @book
     end
   end
 
   def like
+    @comment = Comment.find(params[:id])
+    @comment.likes.create(user_id: current_user.id)
+    flash[:success] = 'Comentário curtido com sucesso'
+    redirect_to @comment.book
   end
 
   def dislike
+    @comment = Comment.find(params[:id])
+    @comment.likes.where(user_id: current_user.id).destroy_all
+    flash[:alert] = 'Não curtiu o comentário'
+    redirect_to @comment.book
   end
 
   private
 
   def set_book
-    @book = Book.find(params[:book_id])
+    @book = Book.find_by(id: params[:book_id])
+    redirect_to root_path, alert: 'Livro não encontrado' unless @book
   end
+  
 
   def set_comment
-    @comment = @book.comments.find(params[:id])
+    @comment = @book.comments.find_by(id: params[:id])
+    unless @comment
+      flash[:alert] = 'Comentário não encontrado'
+      redirect_to book_path(@book) # or render an error page
+    end
   end
 
   def comment_params

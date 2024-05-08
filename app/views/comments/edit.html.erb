@@ -1,0 +1,10 @@
+<div class="w-full bg-cover bg-center" style="height:32rem; background-image: url(<%= @book.image.attached? ? url_for(@book.image) : 'https://via.placeholder.com/800x400' %>);">
+  <div class="flex items-center justify-center h-full w-full bg-gray-900 bg-opacity-50">
+    <div class="text-center">
+      <h1 class="text-white text-2xl font-semibold uppercase md:text-3xl"><%= @book.title %> <br><span class="underline text-blue-400"><%= @book.author %></span></h1>
+    </div>
+  </div>
+</div>
+<%= render 'comments/comment_form', comment: @comment %>
+
+
